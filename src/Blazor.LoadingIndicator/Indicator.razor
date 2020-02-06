@@ -10,13 +10,14 @@ else if (CurrentTask != null && _loadingFragment != null)
     @_loadingFragment
 }
 <div style="@(((CurrentTask?.Exception != null && ErrorContent == null) ||
-              CurrentTask == null) ? string.Empty : CONTENT_HIDDEN)">
+              CurrentTask == null) ? CONTENT_SHOWN : CONTENT_HIDDEN)">
     @ChildContent
 </div>
 
 @code {    
 
 
+    private const string CONTENT_SHOWN = "display: inherit;";
     private const string CONTENT_HIDDEN = "display: none;";
 
     [Parameter] public RenderFragment ChildContent { get; set; }
